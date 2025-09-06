@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sumant Mahesh Adky — Portfolio</title>
+  <meta name="description" content="3D portfolio of Sumant Mahesh Adky — HTML, CSS, JavaScript, Bootstrap, GSAP & Java (skill). No SQL." />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <!-- Three.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- NAV -->
+  <header class="site-header">
+    <div class="container py-3 d-flex align-items-center justify-content-between">
+      <a class="brand fw-bold text-decoration-none fs-5" href="#top">Sumant<span class="text-info">.</span></a>
+      <nav class="d-flex gap-2">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO (3D) -->
+  <section id="top" class="hero-3d position-relative overflow-hidden">
+    <canvas id="hero-canvas" aria-label="Decorative 3D scene"></canvas>
+    <div class="container hero-content">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <h1 class="display-4 fw-800 mb-3">
+            <span class="typewriter-text" id="typewriter"></span>
+            <span class="typewriter-cursor">|</span>
+          </h1>
+          <p class="lead mb-4 text-secondary">I'm <span class="text-info fw-bold">Sumant Mahesh Adky</span> — a motivated web developer who loves clean UI, subtle motion, and responsive design.</p>
+          <div class="d-flex gap-2 flex-wrap">
+            <a class="btn-glow ring-anim" href="#projects">See Projects</a>
+            <div class="btn-glow-placeholder"></div>
+            <a class="btn-glow" href="SUMANT_RESUME.pdf" download>Download Resume</a>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="hero-badges card3d p-4 text-center">
+            <div class="d-flex gap-2 justify-content-center flex-wrap">
+              <span class="badge-tech">HTML</span>
+              <span class="badge-tech">CSS</span>
+              <span class="badge-tech">JavaScript</span>
+              <span class="badge-tech">Bootstrap</span>
+              <span class="badge-tech">GSAP</span>
+              <span class="badge-tech">Java</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-gradient"></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <h2 class="section-title h1 mb-4">About</h2>
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <p class="lead mb-4 text-secondary">I'm <span class="text-info fw-bold">Sumant Mahesh Adky</span>, a passionate and goal-driven web developer with a strong foundation in modern web technologies. I specialize in creating responsive, user-friendly interfaces that combine clean design with smooth functionality.</p>
+          <p class="mb-3 text-secondary">My journey in web development began with a curiosity for how websites work, which evolved into a passion for building digital experiences that users love. I believe in writing clean, maintainable code and staying updated with the latest industry trends and best practices.</p>
+          <p class="mb-3 text-secondary">When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing knowledge with fellow developers. I'm always eager to learn new skills and take on challenging projects that push my boundaries.</p>
+        </div>
+        <div class="col-lg-4">
+          <div class="about-highlights card3d p-4">
+            <h4 class="h5 mb-3 text-info">Quick Facts</h4>
+            <div class="highlight-item mb-3">
+              <span class="highlight-icon">🎯</span>
+              <span class="highlight-text">Goal-driven & detail-oriented</span>
+            </div>
+            <div class="highlight-item mb-3">
+              <span class="highlight-icon">🚀</span>
+              <span class="highlight-text">Fast learner & problem solver</span>
+            </div>
+            <div class="highlight-item mb-3">
+              <span class="highlight-icon">🤝</span>
+              <span class="highlight-text">Team player & communicator</span>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-icon">💡</span>
+              <span class="highlight-text">Creative & innovative thinker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SKILLS -->
+  <section id="skills" class="py-5">
+    <div class="container">
+      <h2 class="section-title h1 mb-4">Skills</h2>
+      <div class="row g-4">
+        <div class="col-md-4 col-6">
+          <div class="skill-card card3d p-4 text-center skill-html">
+            <div class="skill-icon mb-3">🌐</div>
+            <h4 class="h5 mb-2">HTML</h4>
+            <div class="skill-level">
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="95"></div>
+              </div>
+              <span class="skill-level-text">Advanced</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-6">
+          <div class="skill-card card3d p-4 text-center skill-css">
+            <div class="skill-icon mb-3">🎨</div>
+            <h4 class="h5 mb-2">CSS</h4>
+            <div class="skill-level">
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="90"></div>
+              </div>
+              <span class="skill-level-text">Advanced</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-6">
+          <div class="skill-card card3d p-4 text-center skill-js">
+            <div class="skill-icon mb-3">⚡</div>
+            <h4 class="h5 mb-2">JavaScript</h4>
+            <div class="skill-level">
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="85"></div>
+              </div>
+              <span class="skill-level-text">Intermediate</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-6">
+          <div class="skill-card card3d p-4 text-center skill-bootstrap">
+            <div class="skill-icon mb-3">📱</div>
+            <h4 class="h5 mb-2">Bootstrap</h4>
+            <div class="skill-level">
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="88"></div>
+              </div>
+              <span class="skill-level-text">Intermediate</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-6">
+          <div class="skill-card card3d p-4 text-center skill-gsap">
+            <div class="skill-icon mb-3">✨</div>
+            <h4 class="h5 mb-2">GSAP</h4>
+            <div class="skill-level">
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="80"></div>
+              </div>
+              <span class="skill-level-text">Intermediate</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-6">
+          <div class="skill-card card3d p-4 text-center skill-java">
+            <div class="skill-icon mb-3">☕</div>
+            <h4 class="h5 mb-2">Java</h4>
+            <div class="skill-level">
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="82"></div>
+              </div>
+              <span class="skill-level-text">Intermediate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-5">
+    <div class="container">
+      <h2 class="section-title h1 mb-4">Projects</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <article class="card3d p-4 h-100">
+            <h3 class="h4 mb-2">Zomato Website (Clone)</h3>
+            <p class="text-secondary">Homepage clone using HTML, CSS, <b>Bootstrap</b>, and <b>GSAP</b> for transitions and micro‑interactions.</p>
+            <div class="d-flex gap-2 flex-wrap mb-3">
+              <span class="badge-tech">HTML</span><span class="badge-tech">CSS</span>
+              <span class="badge-tech">Bootstrap</span><span class="badge-tech">GSAP</span>
+            </div>
+            <div class="d-flex gap-2">
+              <a class="btn-glow" href="#" aria-label="Live demo">Live Demo</a>
+              <a class="btn-glow" href="#" aria-label="Source code">Source</a>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6">
+          <article class="card3d p-4 h-100">
+            <h3 class="h4 mb-2">Department Website</h3>
+            <p class="text-secondary">Static site to display academic & extracurricular events (time, venue, name) with a clean, student‑friendly layout.</p>
+            <div class="d-flex gap-2 flex-wrap mb-3">
+              <span class="badge-tech">HTML</span><span class="badge-tech">CSS</span>
+            </div>
+            <div class="d-flex gap-2">
+              <a class="btn-glow" href="#">Live Demo</a>
+              <a class="btn-glow" href="#">Source</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="py-5">
+    <div class="container">
+      <h2 class="section-title h1 mb-4">Experience</h2>
+      <div class="card3d p-4 mb-3">
+        <div class="d-flex justify-content-between flex-wrap">
+          <div>
+            <h3 class="h5 mb-1">Java Full Stack Trainee — TAP Academy</h3>
+            <small class="text-secondary">Bangalore, India • June 30, 2025 – Present</small>
+          </div>
+        </div>
+        <ul class="mt-3 text-secondary mb-0">
+          <li>Currently undergoing training in Java Full Stack Development.</li>
+          <li>Learning front-end and back-end technologies, including Java, Spring Boot, HTML, CSS, JavaScript, and databases.</li>
+          <li>Participating in hands-on projects and practical assignments to build real-world skills.</li>
+        </ul>
+      </div>
+      <div class="card3d p-4 mb-3">
+        <div class="d-flex justify-content-between flex-wrap">
+          <div>
+            <h3 class="h5 mb-1">Web Development Intern — Taurus Hard Soft Solutions Pvt. Ltd.</h3>
+            <small class="text-secondary">Bangalore, India • Jan 1, 2024 – Jan 31, 2025</small>
+          </div>
+        </div>
+        <ul class="mt-3 text-secondary mb-0">
+          <li>Integrated front‑end interfaces with back‑end APIs to ship functional, dynamic web features.</li>
+          <li>Participated across the Project Development Life Cycle (PDLC) while building full‑stack modules.</li>
+          <li>Collaborated on requirements, testing and iterative improvements for production readiness.</li>
+        </ul>
+      </div>
+      <div class="card3d p-4">
+        <h3 class="h6 mb-1">Entrepreneurship — CSI Bangalore Chapter One</h3>
+        <small class="text-secondary">Nov 2, 2023 – Dec 2, 2023</small>
+        <ul class="mt-3 text-secondary mb-0">
+          <li>Researched markets, validated ideas, and prepared concise pitch presentations.</li>
+          <li>Learned strategic planning and startup ecosystem fundamentals via hands‑on work.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" class="py-5">
+    <div class="container">
+      <h2 class="section-title h1 mb-4">Certifications</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="certification-card card3d p-4 h-100 text-center">
+            <div class="cert-icon mb-3">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3 class="h5 mb-2">Java Development</h3>
+            <p class="text-secondary mb-2">Pearson & Besant Technologies</p>
+            <div class="cert-badge">Advanced Level</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="certification-card card3d p-4 h-100 text-center">
+            <div class="cert-icon mb-3">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3 class="h5 mb-2">CSS Basic</h3>
+            <p class="text-secondary mb-2">HackerRank</p>
+            <div class="cert-badge">Expert Level</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EDUCATION -->
+  <section id="education" class="py-5">
+    <div class="container">
+      <h2 class="section-title h1 mb-4">Education</h2>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="card3d p-4 h-100">
+            <h3 class="h5 mb-1">B.E. — Information Science & Engineering</h3>
+            <small class="text-secondary">PDA College of Engineering, Kalaburagi • 2021–2025 • CGPA: 8.30</small>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card3d p-4 h-100">
+            <h3 class="h5 mb-1">PUC II — PCMB</h3>
+            <small class="text-secondary">SBR Composite PU College, Kalaburagi • 2020–2021 • 89%</small>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card3d p-4 h-100">
+            <h3 class="h5 mb-1">Class X</h3>
+            <small class="text-secondary">SBR Public School, Kalaburagi • 2018–2019 • 83.68%</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <h2 class="section-title h1 mb-4">Contact</h2>
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-7">
+          <div class="card3d p-4 h-100">
+            <form class="needs-validation" novalidate onsubmit="event.preventDefault(); alert('Thanks! I will reply soon.');">
+              <div class="row g-3">
+                <div class="col-md-6"><label class="form-label">Name</label><input class="form-control" required></div>
+                <div class="col-md-6"><label class="form-label">Email</label><input type="email" class="form-control" required></div>
+                <div class="col-12"><label class="form-label">Message</label><textarea rows="4" class="form-control" required></textarea></div>
+              </div>
+              <button class="btn-glow mt-3 text-white bg-dark" type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="card3d p-4 h-100 d-flex flex-column justify-content-between">
+            <div>
+              <p class="mb-1 text-secondary">Phone</p>
+              <p class="fw-semibold">+91 97419 51514</p>
+              <p class="mb-1 text-secondary">Email</p>
+              <p class="fw-semibold">sumantadky1@gmail.com</p>
+            </div>
+            <div class="d-flex gap-2 mt-3 flex-wrap">
+              <a class="btn-glow" href="https://github.com/SumantAdky1" target="_blank">GitHub</a>
+              <a class="btn-glow" href="https://www.linkedin.com/in/sumant-adky" target="_blank">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-5">
+    <div class="container text-center small">© <span id="year"></span> Sumant Mahesh Adky • Built with HTML, CSS, JavaScript, Bootstrap & GSAP</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

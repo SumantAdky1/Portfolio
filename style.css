@@ -1,0 +1,477 @@
+/* ==================
+   Theme & Base
+   ================== */
+:root {
+  --bg: #0b1220;
+  --card: #0f172a;
+  --muted: #93a4b8;
+  --text: #e6f0ff;
+  --accent: #22d3ee;
+  --accent-2: #a78bfa;
+  --ring: 0 0 0 2px rgba(34, 211, 238, .45), 0 10px 40px rgba(34, 211, 238, .18);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #475569;
+    --accent: #0891b2;
+    --accent-2: #6d28d9
+  }
+}
+
+* {
+  box-sizing: border-box
+}
+
+html {
+  scroll-behavior: smooth
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(103, 232, 249, .12), transparent),
+    radial-gradient(900px 500px at 110% 10%, rgba(167, 139, 250, .10), transparent),
+    var(--bg);
+  color: var(--text);
+  font: 500 16px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto;
+}
+
+.container {
+  max-width: 1100px
+}
+
+a {
+  color: inherit;
+  text-decoration: none
+}
+
+/* Ensure all sections are visible by default */
+section {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.card3d, .badge-tech, .section-title, li, .cert-icon, .cert-badge {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: linear-gradient(to bottom, rgba(2, 6, 23, .8), rgba(2, 6, 23, .2), transparent);
+  backdrop-filter: saturate(140%) blur(8px);
+}
+
+.site-header nav a {
+  color: var(--muted);
+  padding: .6rem .9rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.site-header nav a:hover {
+  color: var(--text);
+  border-color: #334155;
+  transform: translateY(-2px);
+}
+
+/* 3D Hero */
+.hero-3d {
+  min-height: 88vh;
+  display: grid;
+  place-items: stretch;
+  position: relative;
+}
+
+#hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-top: 5rem;
+  padding-bottom: 1.5rem;
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(50% 40% at 20% 10%, rgba(34, 211, 238, .15), transparent 60%), radial-gradient(60% 50% at 80% 20%, rgba(167, 139, 250, .12), transparent 60%);
+  pointer-events: none;
+}
+
+/* Typewriter Animation */
+.typewriter-text {
+  display: inline-block;
+  min-height: 1.2em;
+  color: var(--text);
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 400;
+  animation: blink 1s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Button placeholder to maintain spacing */
+.btn-glow-placeholder {
+  width: 120px;
+  height: 44px;
+  visibility: hidden;
+}
+
+/* About Section Enhancements */
+.about-highlights {
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.05), rgba(167, 139, 250, 0.05));
+  border: 1px solid rgba(34, 211, 238, 0.2);
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.highlight-icon {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.highlight-text {
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* Enhanced Skills Section */
+.skill-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.03));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+.skill-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.skill-level {
+  margin-top: 1rem;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.skill-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.skill-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.skill-percentage {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Skill-specific colors */
+.skill-html .skill-fill {
+  background: linear-gradient(90deg, #e34c26, #f06529);
+}
+
+.skill-css .skill-fill {
+  background: linear-gradient(90deg, #264de4, #2965f1);
+}
+
+.skill-js .skill-fill {
+  background: linear-gradient(90deg, #f7df1e, #f0db4f);
+}
+
+.skill-bootstrap .skill-fill {
+  background: linear-gradient(90deg, #7952b3, #8e44ad);
+}
+
+.skill-gsap .skill-fill {
+  background: linear-gradient(90deg, #88ce02, #a0d911);
+}
+
+.skill-java .skill-fill {
+  background: linear-gradient(90deg, #007396, #ed8b00);
+}
+
+/* Skill card hover effects */
+.skill-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.skill-card:hover .skill-fill {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+}
+
+/* Cards & badges */
+.card3d {
+  background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .02));
+  border: 1px solid rgba(148, 163, 184, .2);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .25), inset 0 1px 0 rgba(255, 255, 255, .06);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.card3d:hover {
+  transform: translateY(-8px) rotateX(3deg) rotateY(-3deg);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, .4), 0 0 0 1px rgba(34, 211, 238, 0.1);
+}
+
+.card3d:active {
+  transform: translateY(-4px) rotateX(1deg) rotateY(-1deg);
+  transition: all 0.1s ease;
+}
+
+.badge-tech {
+  background: rgba(148, 163, 184, .12);
+  border: 1px solid rgba(148, 163, 184, .28);
+  color: var(--text);
+  padding: .45rem .7rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.badge-tech:hover {
+  background: rgba(34, 211, 238, .15);
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+/* Certifications Section */
+.certification-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.certification-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.certification-card:hover::before {
+  left: 100%;
+}
+
+.cert-icon {
+  color: var(--accent);
+  transition: all 0.3s ease;
+}
+
+.certification-card:hover .cert-icon {
+  transform: scale(1.1) rotate(5deg);
+  color: var(--accent-2);
+}
+
+.cert-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.certification-card:hover .cert-badge {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(34, 211, 238, 0.3);
+}
+
+.section-title {
+  font-weight: 800;
+  letter-spacing: .5px;
+  transition: all 0.3s ease;
+}
+
+.section-title:hover {
+  color: var(--accent);
+  transform: translateX(5px);
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(148, 163, 184, .3), transparent);
+  transition: all 0.3s ease;
+}
+
+.divider:hover {
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+footer {
+  color: var(--muted)
+}
+
+/* Buttons */
+.btn-glow {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .7rem 1rem;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  background: linear-gradient(180deg, var(--card), #0b1020);
+  text-decoration: none;
+  box-shadow: var(--ring);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-glow:hover::before {
+  left: 100%;
+}
+
+.btn-glow:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(34, 211, 238, 0.3);
+  border-color: var(--accent);
+}
+
+.btn-glow:active {
+  transform: translateY(-1px);
+  transition: all 0.1s ease;
+}
+
+.ring-anim {
+  position: relative
+}
+
+.ring-anim::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  background: conic-gradient(from var(--angle), var(--accent), var(--accent-2), var(--accent));
+  filter: blur(6px);
+  opacity: .35;
+  z-index: -1;
+  animation: spin 6s linear infinite
+}
+
+@keyframes spin {
+  to {
+    --angle: 360deg
+  }
+}
+
+/* Utilities */
+.text-secondary {
+  color: var(--muted) !important
+}
+
+/* Smooth animations for all interactive elements */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Prevent animation conflicts */
+.card3d:hover .badge-tech {
+  transform: none;
+}
+
+.card3d:hover .cert-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.card3d:hover .cert-badge {
+  transform: translateY(-2px);
+}
+
+/* Fallback visibility for better content display */
+@media (prefers-reduced-motion: no-preference) {
+  section, .card3d, .badge-tech, .section-title, li, .cert-icon, .cert-badge {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
